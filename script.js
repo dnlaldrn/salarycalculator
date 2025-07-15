@@ -11,23 +11,28 @@
         
      }
      calculateTotalIncome = () =>{
-         if(document.querySelector('.regularHours').value == " " && document.querySelector('.OThours').value ==" "){
-                      document.querySelector('.display').innerHTML = "Invalid Input ";
+          const regInput = document.querySelector('.regularHours').value.trim();
+            const otInput = document.querySelector('.OThours').value.trim();
+
+         if(regInput === " "&& otInput === ""){
+            document.querySelector('.display').innerHTML = "Invalid Input ";
+            }else{
+                const regincome = calculateregHours();
+                const otincome = calculateOTHours();
+                const totalIncome = regincome + otincome;
+                const incomesssdeducted = totalIncome *.05;
+                const philhealthdeducted = ((totalIncome * 2)* .05)/2;
+                const pagibigdeducted = totalIncome * .02;
+                const totaldeduction = incomesssdeducted + philhealthdeducted + pagibigdeducted;
+                const netIncome =totalIncome -totaldeduction;
+                document.querySelector('.display').innerHTML = `
+                <p>Total Income: ${totalIncome.toFixed(2)}</p>
+                <p>SSS : ${incomesssdeducted.toFixed(2)}</p>
+                <p> PhilHealth: ${philhealthdeducted.toFixed(2)}</p>
+                <p>Pagibig : ${pagibigdeducted.toFixed(2)}</p>
+                <p> Net Income: ${netIncome.toFixed(2)}</p>`
             }
-        const regincome = calculateregHours();
-        const otincome = calculateOTHours();
-        const totalIncome = regincome + otincome;
-        const incomesssdeducted = totalIncome *.05;
-        const philhealthdeducted = ((totalIncome * 2)* .05)/2;
-        const pagibigdeducted = totalIncome * .02;
-        const totaldeduction = incomesssdeducted + pagibigdeducted + pagibigdeducted;
-        const netIncome =totalIncome -totaldeduction;
-        document.querySelector('.display').innerHTML = `
-        <p>Total Income: ${totalIncome.toFixed(2)}</p>
-         <p>SSS : ${incomesssdeducted.toFixed(2)}</p>
-         <p> PhilHealth: ${philhealthdeducted.toFixed(2)}</p>
-         <p>Pagibig : ${pagibigdeducted.toFixed(2)}</p>
-         <p> Net Income: ${netIncome.toFixed(2)}</p>`
+        
            
      }
      deleteDisplay = ()=>{
