@@ -1,26 +1,4 @@
-calculateTotalIncome = () =>{
-          const regInput = document.querySelector('.regularHours').value.trim();
-            const otInput = document.querySelector('.OThours').value.trim();
 
-         if(regInput === " "&& otInput === ""){
-            document.querySelector('.display').innerHTML = "Invalid Input ";
-            }else{
-                const regincome = calculateregHours();
-                const otincome = calculateOTHours();
-                const totalIncome = regincome + otincome;
-
-calculateregHours = () =>{
-        const regularHours = document.querySelector('.regularHours').value
-        const convertedRegHours = regularHours * 67.5;
-        return convertedRegHours;
-        
-     }
-      calculateOTHours = () =>{
-        const OTHours = document.querySelector('.OThours').value
-        const convertedOTHours = OTHours * 84;
-        return convertedOTHours;
-        
-     }
      calculateTotalIncome = () =>{
           const regInput = document.querySelector('.regularHours').value.trim();
           const otInput = document.querySelector('.OThours').value.trim();
