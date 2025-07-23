@@ -1,55 +1,46 @@
-calculateregHours = () =>{
-        const regularHours = document.querySelector('.regularHours').value
-        const convertedRegHours = regularHours * 67.5;
-        return convertedRegHours;
-        
-     }
-      calculateOTHours = () =>{
-        const OTHours = document.querySelector('.OThours').value
-        const convertedOTHours = OTHours * 84;
-        return convertedOTHours;
-        
-     }
+
      calculateTotalIncome = () =>{
-          const regInput = document.querySelector('.regularHours').value.trim();
-          const otInput = document.querySelector('.OThours').value.trim();
-          const regincome = calculateregHours();
-          const otincome = calculateOTHours();
-          const totalIncome = regincome + otincome;
+          let cutoff = document.querySelector('.cutoff').value;
+          const regincome = document.querySelector('.regularHours').value;
+          const otincome = document.querySelector('.OThours').value;
+          const totalIncome = (regincome*67.5) + (otincome*84);
           const incomesssdeducted = totalIncome *.05;
-          const philhealthdeducted = ((totalIncome * 2)* .05)/2;
+          let philhealthdeducted = 0;
           const pagibigdeducted = totalIncome * .02;
           const totaldeduction = incomesssdeducted + philhealthdeducted + pagibigdeducted;
           const netIncome =totalIncome -totaldeduction;
 
-        if(netIncome > 5500){
-             document.querySelector('.display').innerHTML = `
-                <p>Total Income: ${totalIncome.toFixed(2)}</p>
-                <p>SSS : ${incomesssdeducted.toFixed(2)}</p>
-                <p> PhilHealth: ${philhealthdeducted.toFixed(2)}</p>
-                <p>Pagibig : ${pagibigdeducted.toFixed(2)}</p>
-                <p> Net Income: ${netIncome.toFixed(2)}</p>
-                <p>Nakss Paldoo</p>`
-
-        }
-            else{
-                document.querySelector('.display').innerHTML = `
-                <p>Total Income: ${totalIncome.toFixed(2)}</p>
-                <p>SSS : ${incomesssdeducted.toFixed(2)}</p>
-                <p> PhilHealth: ${philhealthdeducted.toFixed(2)}</p>
-                <p>Pagibig : ${pagibigdeducted.toFixed(2)}</p>
-                <p> Net Income: ${netIncome.toFixed(2)}</p>
-                 <p>Konting Extend pa boss</p>`
-               
-                
-            }
+          if(cutoff == 2){
             
-           
+            document.querySelector('.display').innerHTML = `
+             <p>Total Income: ${totalIncome.toFixed(2)}</p>
+              <p>SSS : ${incomesssdeducted.toFixed(2)}</p>
+              <p> PhilHealth: ${philhealthdeducted.toFixed(2)}</p>
+              <p>Pagibig : ${pagibigdeducted.toFixed(2)}</p>
+              <p> Net Income: ${netIncome.toFixed(2)}</p>`;
+          }else{
+           let philhealthdeducted = (((totalIncome*2)*.05)/2);
+            const totaldeduction = incomesssdeducted + philhealthdeducted + pagibigdeducted;
+            const netIncome =totalIncome -totaldeduction;
+            document.querySelector('.display').innerHTML = `
+             <p>Total Income: ${totalIncome.toFixed(2)}</p>
+              <p>SSS : ${incomesssdeducted.toFixed(2)}</p>
+              <p> PhilHealth: ${philhealthdeducted.toFixed(2)}</p>
+              <p>Pagibig : ${pagibigdeducted.toFixed(2)}</p>
+              <p> Net Income: ${netIncome.toFixed(2)}</p>`
+            
+          }
+
+      
+
         
-           
+
      }
+
+     
      deleteDisplay = ()=>{
          document.querySelector('.display').innerHTML = " ";
          document.querySelector('.regularHours').value = " ";
          document.querySelector('.OThours').value = " ";
+        document.querySelector('.cutoff').value = " ";
      }
