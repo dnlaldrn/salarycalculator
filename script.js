@@ -19,7 +19,7 @@
               <p>Pagibig : ${pagibigdeducted.toFixed(2)}</p>
               <p> Net Income: ${netIncome.toFixed(2)}</p>`;
           }else{
-           let philhealthdeducted = (((totalIncome*.05);
+           let philhealthdeducted = (totalIncome*.05);
             const totaldeduction = incomesssdeducted + philhealthdeducted + pagibigdeducted;
             const netIncome =totalIncome -totaldeduction;
             document.querySelector('.display').innerHTML = `
