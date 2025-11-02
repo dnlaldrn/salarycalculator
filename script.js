@@ -3,7 +3,7 @@
           let cutoff = document.querySelector('.cutoff').value;
           const regincome = document.querySelector('.regularHours').value;
           const otincome = document.querySelector('.OThours').value;
-          const totalIncome = (regincome*67.5) + (otincome*84);
+          const totalIncome = (regincome*72.5) + (otincome*90);
           const incomesssdeducted = totalIncome *.05;
           let philhealthdeducted = 0;
           const pagibigdeducted = totalIncome * .02;
@@ -44,3 +44,4 @@
          document.querySelector('.OThours').value = " ";
         document.querySelector('.cutoff').value = " ";
      }
+
